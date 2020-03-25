@@ -65,7 +65,7 @@ void loop() {
 
   // Verify if the NUID has been readed
   if ( ! rfid.PICC_ReadCardSerial()){
-    Serial.println("NUID has not been read");
+    Serial.println("NUID cannot be read");
     return;
   }
 
