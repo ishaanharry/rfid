@@ -58,12 +58,16 @@ void setup() {
 void loop() {
 
   // Reset the loop if no new card present on the sensor/reader. This saves the entire process when idle.
-  if ( ! rfid.PICC_IsNewCardPresent())
+  if ( ! rfid.PICC_IsNewCardPresent()){
+    Serial.println("no new card is present");
     return;
+  }
 
   // Verify if the NUID has been readed
-  if ( ! rfid.PICC_ReadCardSerial())
+  if ( ! rfid.PICC_ReadCardSerial()){
+    Serial.println("NUID has not been read");
     return;
+  }
 
   Serial.print(F("PICC type: "));
   MFRC522::PICC_Type piccType = rfid.PICC_GetType(rfid.uid.sak);

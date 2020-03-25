@@ -51,11 +51,13 @@ void loop() {
 
   // Reset the loop if no new card present on the sensor/reader. This saves the entire process when idle.
   if ( ! mfrc522.PICC_IsNewCardPresent()) {
+    //Serial.println("No new card present");
     return;
   }
 
   // Select one of the cards
   if ( ! mfrc522.PICC_ReadCardSerial()) {
+    //Serial.println("not doing what you want, lol");
     return;
   }
 
