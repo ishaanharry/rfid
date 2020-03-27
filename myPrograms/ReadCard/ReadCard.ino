@@ -24,6 +24,7 @@ void setup() {
   Serial.begin(9600);                                           // Initialize serial communications with the PC
   SPI.begin();                                                  // Init SPI bus
   rfid.PCD_Init(); 
+  delay(20000);
 }
 
 void loop() {
